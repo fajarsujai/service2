@@ -1,0 +1,3291 @@
+apiVersion: v1
+items:
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"name":"admin-user"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cluster-admin"},"subjects":[{"kind":"ServiceAccount","name":"admin-user","namespace":"kubernetes-dashboard"}]}
+    creationTimestamp: "2022-11-08T07:09:46Z"
+    name: admin-user
+    resourceVersion: "1301933"
+    uid: a7d832de-6233-4532-a6c5-c20208e1a667
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: admin-user
+    namespace: kubernetes-dashboard
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: argo-cd
+      meta.helm.sh/release-namespace: argocd
+    creationTimestamp: "2023-05-23T07:39:56Z"
+    labels:
+      app.kubernetes.io/component: application-controller
+      app.kubernetes.io/instance: argo-cd
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: argocd-application-controller
+      app.kubernetes.io/part-of: argocd
+      helm.sh/chart: argo-cd-5.29.1
+    name: argo-cd-argocd-application-controller
+    resourceVersion: "56054066"
+    uid: 54142f62-5115-4caa-8474-55ba7370e79f
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: argo-cd-argocd-application-controller
+  subjects:
+  - kind: ServiceAccount
+    name: argocd-application-controller
+    namespace: argocd
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: argo-cd
+      meta.helm.sh/release-namespace: argocd
+    creationTimestamp: "2023-05-23T07:39:56Z"
+    labels:
+      app.kubernetes.io/component: repo-server
+      app.kubernetes.io/instance: argo-cd
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: argocd-repo-server
+      app.kubernetes.io/part-of: argocd
+      helm.sh/chart: argo-cd-5.29.1
+    name: argo-cd-argocd-repo-server
+    resourceVersion: "56054067"
+    uid: 14d75d3d-5693-4392-a3fd-1ff9987e8a8d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: argo-cd-argocd-repo-server
+  subjects:
+  - kind: ServiceAccount
+    name: argo-cd-argocd-repo-server
+    namespace: argocd
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: argo-cd
+      meta.helm.sh/release-namespace: argocd
+    creationTimestamp: "2023-05-23T07:39:56Z"
+    labels:
+      app.kubernetes.io/component: server
+      app.kubernetes.io/instance: argo-cd
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: argocd-server
+      app.kubernetes.io/part-of: argocd
+      helm.sh/chart: argo-cd-5.29.1
+    name: argo-cd-argocd-server
+    resourceVersion: "56054068"
+    uid: 416b449c-1133-4bf4-a290-3f88a48020b5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: argo-cd-argocd-server
+  subjects:
+  - kind: ServiceAccount
+    name: argocd-server
+    namespace: argocd
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"application-controller","app.kubernetes.io/name":"argocd-application-controller","app.kubernetes.io/part-of":"argocd"},"name":"argocd-application-controller"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"argocd-application-controller"},"subjects":[{"kind":"ServiceAccount","name":"argocd-application-controller","namespace":"argocd"}]}
+    creationTimestamp: "2023-05-23T08:09:59Z"
+    labels:
+      app.kubernetes.io/component: application-controller
+      app.kubernetes.io/name: argocd-application-controller
+      app.kubernetes.io/part-of: argocd
+    name: argocd-application-controller
+    resourceVersion: "56061351"
+    uid: 8c98f0fa-22d4-4811-9ada-c4d5841c20ab
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: argocd-application-controller
+  subjects:
+  - kind: ServiceAccount
+    name: argocd-application-controller
+    namespace: argocd
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"server","app.kubernetes.io/name":"argocd-server","app.kubernetes.io/part-of":"argocd"},"name":"argocd-server"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"argocd-server"},"subjects":[{"kind":"ServiceAccount","name":"argocd-server","namespace":"argocd"}]}
+    creationTimestamp: "2023-05-23T08:09:59Z"
+    labels:
+      app.kubernetes.io/component: server
+      app.kubernetes.io/name: argocd-server
+      app.kubernetes.io/part-of: argocd
+    name: argocd-server
+    resourceVersion: "56061352"
+    uid: e913bd15-bd64-43e9-810e-419c45b78abe
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: argocd-server
+  subjects:
+  - kind: ServiceAccount
+    name: argocd-server
+    namespace: argocd
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"name":"calico-kube-controllers"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"calico-kube-controllers"},"subjects":[{"kind":"ServiceAccount","name":"calico-kube-controllers","namespace":"kube-system"}]}
+    creationTimestamp: "2022-11-02T12:29:44Z"
+    name: calico-kube-controllers
+    resourceVersion: "426"
+    uid: 404067ab-3939-4d91-a77e-062a94fd27f5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: calico-kube-controllers
+  subjects:
+  - kind: ServiceAccount
+    name: calico-kube-controllers
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"name":"canal-calico"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"calico"},"subjects":[{"kind":"ServiceAccount","name":"canal","namespace":"kube-system"}]}
+    creationTimestamp: "2022-11-02T12:29:44Z"
+    name: canal-calico
+    resourceVersion: "432"
+    uid: ec01589d-b0bc-4947-827e-1b9cf815bbad
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: calico
+  subjects:
+  - kind: ServiceAccount
+    name: canal
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"name":"canal-flannel"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"flannel"},"subjects":[{"kind":"ServiceAccount","name":"canal","namespace":"kube-system"}]}
+    creationTimestamp: "2022-11-02T12:29:44Z"
+    name: canal-flannel
+    resourceVersion: "431"
+    uid: 8b2a25b5-91e0-479b-84d3-42f82daec78a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: flannel
+  subjects:
+  - kind: ServiceAccount
+    name: canal
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"labels":{"cattle.io/creator":"norman"},"name":"cattle-admin-binding"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"cattle-admin"},"subjects":[{"kind":"ServiceAccount","name":"cattle","namespace":"cattle-system"}]}
+    creationTimestamp: "2022-11-02T12:30:12Z"
+    labels:
+      cattle.io/creator: norman
+    name: cattle-admin-binding
+    resourceVersion: "793"
+    uid: 554a96bf-6fe6-472e-96fa-f15cb5f9d383
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-admin
+  subjects:
+  - kind: ServiceAccount
+    name: cattle
+    namespace: cattle-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: fleet-agent-c-jj9m8
+      meta.helm.sh/release-namespace: cattle-fleet-system
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/5SPQU/zMAxA/4vPa79t/dja3BAH7oMb4uCk7maWxlXiIMG0/46ygtgFJI625Pf8TjCSYo+KYE6AIYiisoRURrEv5DSR1pGldqjqqWb5xz0YGDyRVrinoJUV0aQRJzgvwEW6IB55pKQ4TmBC9n4BHi35X8EHTIeCbrquX9pmtRzsYNctdZvNtlmth95tsWm6m/+0tq1riy3gSGBgZlTzU+ktKY3V9YdRPFWWQ89hX87KvKPhEj3xfZQ8gYFo0dWY9SCR3y8R9bFNNQss4MihZN/5nJTiTjzBn+zFmvIcDubp9AV8oPjKjm6dkxz0m3l1/7lME7ofbHB+Pn8EAAD//7/Wwq3LAQAA
+      objectset.rio.cattle.io/id: fleet-agent-bootstrap
+    creationTimestamp: "2023-02-04T15:31:56Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+      objectset.rio.cattle.io/hash: f399d0b310fbfb28e9667312fdc7a33954e2b8c8
+    name: cattle-fleet-system-fleet-agent-role-binding
+    resourceVersion: "127855890"
+    uid: 246fa1c4-2e2c-4a8b-9c96-e49559538fc9
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-fleet-system-fleet-agent-role
+  subjects:
+  - kind: ServiceAccount
+    name: fleet-agent
+    namespace: cattle-fleet-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-03-14T07:22:24Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-225gr
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-225gr
+      uid: 01ff0f25-85a5-4c03-b225-a34989cef9ed
+    resourceVersion: "33078267"
+    uid: 4696aafb-1218-40b9-b2ee-6dfe0fe698b6
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-225gr
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-225gr
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-21T08:06:01Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-4lmfd
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-4lmfd
+      uid: ef41c7ae-4d28-4f9f-90dc-5774609a3ee7
+    resourceVersion: "4233368"
+    uid: 3ae24219-9aaf-49f9-bac5-7bd38426b281
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-4lmfd
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-4lmfd
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T06:46:26Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-4wpsg
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-4wpsg
+      uid: 092677c4-6d39-4f68-b616-41c554fb8e73
+    resourceVersion: "176019"
+    uid: faadd354-ac9b-4874-892b-035c57a10b46
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-4wpsg
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-4wpsg
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T03:10:09Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-5r6k2
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-5r6k2
+      uid: 42802f36-91dd-49d1-bbee-9d85e8328be5
+    resourceVersion: "142040"
+    uid: 3b7e6276-3023-4d07-859a-4a037d9da24a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-5r6k2
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-5r6k2
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T09:26:11Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-6vfm9
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-6vfm9
+      uid: ebb52f28-a880-408a-8806-604facae5f98
+    resourceVersion: "22046215"
+    uid: 20dfe2e6-377b-4f80-bfa6-0a0179f717cd
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-6vfm9
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-6vfm9
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-08-07T05:40:13Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-976xv
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-976xv
+      uid: 507ff089-a852-4a4b-9730-3d2ffe512a6f
+    resourceVersion: "88765837"
+    uid: 34a1bd5f-966e-4b87-a9a2-3ba3f18ca849
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-976xv
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-976xv
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-16T12:45:13Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-99wdc
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-99wdc
+      uid: e56bc60c-f712-4ad5-b136-ec677ba01087
+    resourceVersion: "53942441"
+    uid: 78b01e8b-871c-48ae-851d-d27b99c95d40
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-99wdc
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-99wdc
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-09-07T02:38:34Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-dnmgc
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-dnmgc
+      uid: e378edb7-143a-4e77-9199-b6b646e4ce7e
+    resourceVersion: "98415146"
+    uid: 0251e9fa-0c16-4bed-9b01-d10d22b9bc28
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-dnmgc
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-dnmgc
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T14:13:29Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-dst6c
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-dst6c
+      uid: d5db79d4-9f6b-4972-b9b4-4c3804f5b4f0
+    resourceVersion: "21120"
+    uid: c853027d-6766-450b-935f-cc1c426a16e2
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-dst6c
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-dst6c
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-12-13T10:30:00Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-fzmq4
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-fzmq4
+      uid: 01234704-7b89-44dc-b864-c3376d9432ab
+    resourceVersion: "9201375"
+    uid: f972851f-076f-4a61-85fc-9a82684ab96c
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-fzmq4
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-fzmq4
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T09:26:24Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-g47qt
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-g47qt
+      uid: a32ab3fe-57f8-48d2-ad39-688783b613ba
+    resourceVersion: "22046270"
+    uid: 3e52f64d-56e8-4e71-a9b6-97677ad72a15
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-g47qt
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-g47qt
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-30T05:23:28Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-gsd88
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-gsd88
+      uid: 5a84e2da-2994-45fb-981b-4ea83e31eca1
+    resourceVersion: "58361537"
+    uid: 2c12f4e1-71fb-4229-8890-2d79b02a4900
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-gsd88
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-gsd88
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-12-09T04:32:02Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-jndnn
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-jndnn
+      uid: f1e4585e-f5ab-45ce-87df-112493910c9a
+    resourceVersion: "137265853"
+    uid: 02ddea38-d6d4-4733-8582-94e1008e8493
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-jndnn
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-jndnn
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T14:13:59Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-jr2vj
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-jr2vj
+      uid: 32aacbcc-8669-4ce3-8d8c-099bd3c9ce31
+    resourceVersion: "21216"
+    uid: 474f412c-e3bf-4e07-811d-f110ab62ee5d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-jr2vj
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-jr2vj
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T09:35:04Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-k7w6s
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-k7w6s
+      uid: 2ee5a661-1f17-4948-aa24-f5e6b8577547
+    resourceVersion: "22048175"
+    uid: d70249c1-cc28-4120-8fe7-9ea9fddf40b8
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-k7w6s
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-k7w6s
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T06:50:36Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-l42p6
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-l42p6
+      uid: a66a9c78-2cd3-4171-85a1-cbe4a8d88f85
+    resourceVersion: "176722"
+    uid: 47b69cd4-c1bc-47da-9ffb-ab1ee51bdd95
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-l42p6
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-l42p6
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-07T03:58:47Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-lvxsz
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-lvxsz
+      uid: da7227f2-d6e3-4a22-87f7-22488ddbb428
+    resourceVersion: "1046816"
+    uid: a95fd639-9a3f-4e40-b4aa-48cb1d9c3317
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-lvxsz
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-lvxsz
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T06:49:35Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-nlmzb
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-nlmzb
+      uid: 690d0b5a-0946-4b00-8cfd-223d95c65cda
+    resourceVersion: "176540"
+    uid: 4cd6912a-ead4-485c-8783-810bee4b3d95
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-nlmzb
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-nlmzb
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:10Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-ocoyyrjpp4
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-ocoyyrjpp4
+      uid: cef66d29-52d1-4797-866a-28b20eee9760
+    resourceVersion: "697"
+    uid: 611c610c-737a-4a2a-a3b3-da2ddbd054f8
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-ocoyyrjpp4
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-ocoyyrjpp4
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-15T06:39:16Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-pfhws
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-pfhws
+      uid: a937c57f-ed20-4d4c-a0bb-5186491f66f6
+    resourceVersion: "53251569"
+    uid: 8f81c10f-1e10-47ef-a105-e2aa388864d7
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-pfhws
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-pfhws
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-03-20T04:31:13Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-pqgr6
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-pqgr6
+      uid: 8803377d-f519-4823-9a96-3d33fb8a6fe3
+    resourceVersion: "34959974"
+    uid: 61e4033b-62c1-4bb9-ab1c-a5b45f298a68
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-pqgr6
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-pqgr6
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-03-20T04:31:02Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-pw9dn
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-pw9dn
+      uid: e2a49463-3e49-4749-9d66-7321fe8767f8
+    resourceVersion: "34959927"
+    uid: 1d749e51-1d52-4a42-b251-237a06c63b75
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-pw9dn
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-pw9dn
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T14:11:53Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-q5z5j
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-q5z5j
+      uid: fb52ed7a-6183-4e34-9b6d-b33797d1b9a5
+    resourceVersion: "20854"
+    uid: e410d8f6-d87e-4b24-b49d-1e98d6ec629f
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-q5z5j
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-q5z5j
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:40Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-qbgrnmeqiw
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-qbgrnmeqiw
+      uid: 83f645c1-e031-4486-b785-baca30cd1bd7
+    resourceVersion: "1208"
+    uid: d427672b-9d17-4ed7-ba55-acdfd414f486
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-qbgrnmeqiw
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-qbgrnmeqiw
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-12T03:11:56Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-rs5lh
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-rs5lh
+      uid: c5e0177b-0c5d-4f76-b8a3-a894d823a034
+    resourceVersion: "51792296"
+    uid: 8266f134-7d44-4c7e-bff3-c26747abbaa7
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-rs5lh
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-rs5lh
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T06:49:16Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-t2kcb
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-t2kcb
+      uid: 48ed8226-489d-47d4-a379-5e79637d7be1
+    resourceVersion: "176483"
+    uid: e24a61b6-f4f4-483a-90ab-d5379304e150
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-t2kcb
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-t2kcb
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-03-24T02:39:27Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-tg2rn
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-tg2rn
+      uid: 59c63a88-1388-4289-bee6-4cb98b090032
+    resourceVersion: "36215112"
+    uid: 7c7d5e85-16f6-4c54-85db-6c63274e2d56
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-tg2rn
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-tg2rn
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-12T03:06:01Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-tjw92
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-tjw92
+      uid: c41e2947-df38-47f3-b9ae-96879a9cd367
+    resourceVersion: "51790941"
+    uid: e8d4877a-f27f-4d72-813c-ee48d4422dc5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-tjw92
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-tjw92
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T03:10:26Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-tprwf
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-tprwf
+      uid: af4c39ae-d8a3-4b75-8d65-d31d2acb8502
+    resourceVersion: "142093"
+    uid: fa6ce3f6-44fc-4c4d-82b3-c65902c35b41
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-tprwf
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-tprwf
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-12T03:11:34Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-vgn9d
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-vgn9d
+      uid: 28018ba1-9351-4d33-82c0-d6e930b09514
+    resourceVersion: "51792197"
+    uid: 86190c59-b9d0-4ee6-85d4-98253edfe28d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-vgn9d
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-vgn9d
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:43:48Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-vtgw5
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-vtgw5
+      uid: efa04c94-18d5-4817-a072-8c5a64c05c4d
+    resourceVersion: "5141"
+    uid: 78103ae5-8d8d-4801-9935-f0c9023c3ed1
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-vtgw5
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-vtgw5
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T06:48:11Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-wlq2t
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-wlq2t
+      uid: 26fd65ae-c42a-4a61-8116-ee9ec1b84089
+    resourceVersion: "176297"
+    uid: d186b6ef-0f1c-447c-8c1c-87cd50a52734
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-wlq2t
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-wlq2t
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-01-26T07:11:04Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-xlbk5
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-xlbk5
+      uid: 0ce02596-3cb5-4b0a-9bd7-b72d09d2114d
+    resourceVersion: "19085796"
+    uid: 96d9561d-eac0-4dc0-a06c-eac7a982c6f2
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-xlbk5
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-xlbk5
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T09:39:09Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-u-znqvw
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-u-znqvw
+      uid: 16616a30-ef05-400a-a014-df9298a8d9b7
+    resourceVersion: "22049074"
+    uid: 1168d57a-4009-4811-8ad5-a4445b39c683
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-u-znqvw
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-u-znqvw
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:10Z"
+    labels:
+      authz.cluster.cattle.io/impersonator: "true"
+      cattle.io/creator: norman
+    name: cattle-impersonation-user-7vp8v
+    ownerReferences:
+    - apiVersion: rbac.authorization.k8s.io/v1
+      kind: ClusterRole
+      name: cattle-impersonation-user-7vp8v
+      uid: 0c04be46-7a5f-47b0-a65d-3f809839b421
+    resourceVersion: "732"
+    uid: c24ef342-f8b7-436a-8d77-2081cd8a7a74
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-impersonation-user-7vp8v
+  subjects:
+  - kind: ServiceAccount
+    name: cattle-impersonation-user-7vp8v
+    namespace: cattle-impersonation-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      objectset.rio.cattle.io/applied: H4sIAAAAAAAA/5SPP0/DMBDFv8vNwdAkJY1XBvaKDTGcz1fF1H8i+zxA1e+OkkgsSBUdn/T0fu93gcCCFgVBXwBjTILiUixLTOaTSQqLyi4pQhHPyqVHZ0HDFh9qxCoTR3GEwhauDVDmdePNBS6CYQYdq/cNeDTsby5PWCbQYNpda/djx13fDUR73D21NPQjkR3odDB9S6Oxz7zQIga+eScnz0c+rX6ze82pzqAhGyS1dFN23+tddT4U5RI0cHZxMXzxtQjnY/IM/+CUukmBfr+XtFV/GeWrCAf9h/Fx/QkAAP//R2hIca8BAAA
+      objectset.rio.cattle.io/id: cattle-unauthenticated
+    creationTimestamp: "2022-11-02T12:30:21Z"
+    labels:
+      objectset.rio.cattle.io/hash: b212d593e3437cc5a102c749ccd7cf8b42c9bd6e
+    name: cattle-unauthenticated
+    resourceVersion: "1080"
+    uid: c7ccbe70-b55b-4458-9279-7607d61b2925
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cattle-unauthenticated
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:unauthenticated
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: cluster-admin
+    resourceVersion: "131"
+    uid: d7d14e17-acfb-4a77-9c98-9839a6b48d4d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:masters
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-12T03:11:56Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-fff2q
+      cattle.io/creator: norman
+    name: crb-24u3kitez7
+    resourceVersion: "51792289"
+    uid: 6d27cc2b-afff-4be2-9310-10a49ebf9a77
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-rs5lh
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T14:11:53Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-6pk7j
+      cattle.io/creator: norman
+    name: crb-2cf2ctcdxb
+    resourceVersion: "20849"
+    uid: 276c907e-d6a3-4c18-a6cd-3b001ed9eb53
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-q5z5j
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-03-14T07:22:24Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-thb9l
+      cattle.io/creator: norman
+    name: crb-2vxflasn6c
+    resourceVersion: "33078263"
+    uid: 982b71e4-804d-4dd2-ba3d-c566832ac4fb
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-225gr
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-12-09T04:32:01Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-x6sgs
+      cattle.io/creator: norman
+    name: crb-3p4mlpo3xz
+    resourceVersion: "137265842"
+    uid: 46738c0f-60ee-4cf9-9b0c-5f98fda0071a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-jndnn
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T06:49:16Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-mbhz7
+      cattle.io/creator: norman
+    name: crb-3u7jtawykm
+    resourceVersion: "176479"
+    uid: a6f1bf0d-993b-4f68-bf55-5edb43a2a72d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-t2kcb
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-21T08:06:01Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-wvjvq
+      cattle.io/creator: norman
+    name: crb-4ca5vljsr5
+    resourceVersion: "4233364"
+    uid: 88002f83-4c2f-46a3-b1dd-12891aaa8fea
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-4lmfd
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:11Z"
+    labels:
+      cattle.io/creator: norman
+      p-n9m6f_creator-project-owner: owner-user
+      p-vzjr8_creator-project-owner: owner-user
+    name: crb-4etzdapgo5
+    resourceVersion: "785"
+    uid: 4637372c-5e2d-449c-b594-3f4877f87e10
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: project-owner-promoted
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: user-7vp8v
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-01-26T07:11:04Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-ssbbn
+      cattle.io/creator: norman
+    name: crb-4oiwjsg2au
+    resourceVersion: "19085792"
+    uid: 44c8393e-ce0f-412c-9e66-7d1fc17d88de
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-xlbk5
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-12T03:06:01Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-tjw4p
+      cattle.io/creator: norman
+    name: crb-4qdgurmdov
+    resourceVersion: "51790934"
+    uid: ab5392ba-7dd2-4eb0-b41f-4cd78024faa0
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-tjw92
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-03-20T04:31:02Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-x85vl
+      cattle.io/creator: norman
+    name: crb-4qkr56uchs
+    resourceVersion: "34959923"
+    uid: 063c5240-98cf-4f9c-a8b0-c7c400f76999
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-pw9dn
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-03-20T04:31:02Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-x85vl
+      cattle.io/creator: norman
+    name: crb-6hnp243tyo
+    resourceVersion: "34959922"
+    uid: af4ac542-8cbc-4f7f-985e-f997cb6b2c75
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-pw9dn
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:10Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_creator-cluster-owner
+      cattle.io/creator: norman
+    name: crb-7leuxltorh
+    resourceVersion: "716"
+    uid: 491bc6cf-e511-4c17-a188-91ebf218f7cc
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: user-7vp8v
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T07:42:50Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-5grvl
+      cattle.io/creator: norman
+    name: crb-7mrsekf5jr
+    resourceVersion: "184912"
+    uid: 989dae41-4550-4a62-9f33-f8b5c797e966
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-4wpsg
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T09:26:24Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-2dhbw
+      cattle.io/creator: norman
+    name: crb-7nf3idooej
+    resourceVersion: "22046265"
+    uid: 6b9e379f-3e84-4b3b-a39d-632870d095c5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-g47qt
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T14:13:29Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-mmbsj
+      cattle.io/creator: norman
+    name: crb-amfpst2pts
+    resourceVersion: "21116"
+    uid: 7f79180d-091d-44dd-b88c-35e89b0c6218
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-dst6c
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T09:35:04Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-b9s5h
+      cattle.io/creator: norman
+    name: crb-bkkbzhburj
+    resourceVersion: "22048170"
+    uid: cb7461fd-1cd6-46fd-9f0f-f69c54e4a444
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-k7w6s
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-08-07T05:40:13Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-htvxn
+      cattle.io/creator: norman
+    name: crb-byzobdn53z
+    resourceVersion: "88765827"
+    uid: dac6cdfa-869e-4908-bd5e-f44f5a8ecfe7
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-976xv
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:40Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_c-jj9m8-fleet-default-owner
+      cattle.io/creator: norman
+    name: crb-d3howbmzzd
+    resourceVersion: "1204"
+    uid: 6635f862-bc7d-4049-8ca2-23f549c691c3
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-qbgrnmeqiw
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T09:26:11Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-6ktxk
+      cattle.io/creator: norman
+    name: crb-dhbdcmdnew
+    resourceVersion: "22046208"
+    uid: c848b9cb-5daf-4d4c-b5fa-35f6caa2dc38
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-6vfm9
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T09:26:24Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-2dhbw
+      cattle.io/creator: norman
+    name: crb-edrcmv7ddo
+    resourceVersion: "22046266"
+    uid: 695afe97-b224-45cd-b59f-51e08036ffd5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-g47qt
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-03-20T04:31:13Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-rf6vs
+      cattle.io/creator: norman
+    name: crb-evo4xu6q5h
+    resourceVersion: "34959970"
+    uid: 5ab64ad8-d9d1-45c1-a63b-a365f6b1a0de
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-pqgr6
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-09-07T02:38:34Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_u-dnmgc-restricted-admin-cluster-owner
+      cattle.io/creator: norman
+    name: crb-g2mew7tblg
+    resourceVersion: "98415139"
+    uid: 46c4ba35-dd58-44bb-a015-9a8b62230d0e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-dnmgc
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T09:39:09Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-7qktq
+      cattle.io/creator: norman
+    name: crb-gtnjptalll
+    resourceVersion: "22049070"
+    uid: 115d58ef-da57-46bf-a0d2-bd478ca23705
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-znqvw
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T14:11:53Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-6pk7j
+      cattle.io/creator: norman
+    name: crb-h6o2vvdsgz
+    resourceVersion: "20848"
+    uid: 629f37dc-88f8-4fe7-b3df-4635a216739e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-q5z5j
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:11Z"
+    labels:
+      cattle.io/creator: norman
+      p-n9m6f_creator-project-owner: owner-user
+    name: crb-iggnkys5mk
+    resourceVersion: "784"
+    uid: bae61ad7-1044-45bb-a35a-e73060bb490b
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: p-n9m6f-namespaces-edit
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: user-7vp8v
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-12T03:11:34Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-lwpcl
+      cattle.io/creator: norman
+    name: crb-in3j7rxzme
+    resourceVersion: "51792190"
+    uid: 7e6e6ed2-41cd-408e-ae35-c7d4094b8a2b
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-vgn9d
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-30T05:23:28Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-x545f
+      cattle.io/creator: norman
+    name: crb-iy64rvnsxg
+    resourceVersion: "58361529"
+    uid: e0407ee7-8691-42d7-9e21-500e1bd2dad1
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-gsd88
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T09:35:04Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-b9s5h
+      cattle.io/creator: norman
+    name: crb-jb4pzy3ooy
+    resourceVersion: "22048171"
+    uid: 0ced9700-d1cf-4705-a913-920ea28dea28
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-k7w6s
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T14:13:59Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-97ggn
+      cattle.io/creator: norman
+    name: crb-k52xss25dn
+    resourceVersion: "21211"
+    uid: bc0de951-c177-4fb2-bb7f-09716d3a9ffb
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-jr2vj
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-08-07T05:40:13Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-htvxn
+      cattle.io/creator: norman
+    name: crb-khznl22a25
+    resourceVersion: "88765828"
+    uid: d14bd58e-f71b-40b8-bd6f-1ceb83718230
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-976xv
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:10Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_u-ocoyyrjpp4-admin
+      cattle.io/creator: norman
+    name: crb-l3vl65i5px
+    resourceVersion: "720"
+    uid: 15a464db-4731-4f1c-b3e6-99ec26bb1225
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-ocoyyrjpp4
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-03-24T02:39:27Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-n4r52
+      cattle.io/creator: norman
+    name: crb-lxuru6se47
+    resourceVersion: "36215107"
+    uid: b64c3ff2-f831-4e79-a82f-0a65d17b751a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-tg2rn
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-03-14T07:22:24Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-thb9l
+      cattle.io/creator: norman
+    name: crb-m257734qav
+    resourceVersion: "33078262"
+    uid: 354dcdb5-b648-4bee-9ca6-287926c9a973
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-225gr
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-03-24T02:39:27Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-n4r52
+      cattle.io/creator: norman
+    name: crb-mrsa77jtx6
+    resourceVersion: "36215108"
+    uid: a09b02da-1678-409e-b709-0ca0b5a1c3ce
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-tg2rn
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T06:50:36Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-trfpv
+      cattle.io/creator: norman
+    name: crb-mwgkkgi7p3
+    resourceVersion: "176718"
+    uid: a8ddeadf-864c-4ad5-98fe-5c4c49bdb601
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-l42p6
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T09:26:11Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-6ktxk
+      cattle.io/creator: norman
+    name: crb-n2lyxveilk
+    resourceVersion: "22046210"
+    uid: be8ca145-da56-4d27-bcea-2d780ea635b2
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-6vfm9
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T06:49:35Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-5z4pv
+      cattle.io/creator: norman
+    name: crb-ni4yalukbg
+    resourceVersion: "176536"
+    uid: 8a8546e9-32b1-48ad-a7c3-2048107fd612
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-nlmzb
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T03:10:26Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-p2hl9
+      cattle.io/creator: norman
+    name: crb-nry3qzflki
+    resourceVersion: "142088"
+    uid: 5dd4ca53-b44e-400b-89bb-8d126074e16e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-tprwf
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T03:10:09Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-4rlk7
+      cattle.io/creator: norman
+    name: crb-oeymzqn7py
+    resourceVersion: "142036"
+    uid: e1381887-74e6-4a4b-b104-d84a543a5a27
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-5r6k2
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T14:13:29Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-mmbsj
+      cattle.io/creator: norman
+    name: crb-om3jhelwqs
+    resourceVersion: "21115"
+    uid: b84d725f-c146-481a-b896-33bd78f5d66e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-dst6c
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-01-26T07:11:04Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-ssbbn
+      cattle.io/creator: norman
+    name: crb-omjdtmtjco
+    resourceVersion: "19085791"
+    uid: 74baa96b-2d85-4633-b860-3a97d0dfa65a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-xlbk5
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-12T03:06:01Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-tjw4p
+      cattle.io/creator: norman
+    name: crb-on56vfpjj2
+    resourceVersion: "51790933"
+    uid: 4c2d871a-17ef-4784-930c-d80fccfdbfeb
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-tjw92
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-12T03:11:34Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-lwpcl
+      cattle.io/creator: norman
+    name: crb-pln7h6adrl
+    resourceVersion: "51792189"
+    uid: e6168021-8ebb-4f6d-9888-57753d06f0e3
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-vgn9d
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-30T05:23:28Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-x545f
+      cattle.io/creator: norman
+    name: crb-pmqanwghu3
+    resourceVersion: "58361530"
+    uid: 7aab412d-e7f8-4052-867c-6bf9f0b88186
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-gsd88
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-03-20T04:31:13Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-rf6vs
+      cattle.io/creator: norman
+    name: crb-r53up52pgv
+    resourceVersion: "34959969"
+    uid: cfd8667b-dd98-4f65-b688-d92c4fbe4d24
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-pqgr6
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-12-09T04:32:01Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-67w8j
+      cattle.io/creator: norman
+    name: crb-s3uwd6heho
+    resourceVersion: "137265845"
+    uid: dc31614a-e79a-436e-82e0-024fdea32852
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: clustercatalogs-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-jndnn
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-15T06:39:16Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-p74pg
+      cattle.io/creator: norman
+    name: crb-s6qo2xzgry
+    resourceVersion: "53251562"
+    uid: 6c72cd8c-e17a-428b-9d75-4e8cf9b14509
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-pfhws
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:11Z"
+    labels:
+      cattle.io/creator: norman
+      p-vzjr8_creator-project-owner: owner-user
+    name: crb-suvtmgecj4
+    resourceVersion: "780"
+    uid: afcceb84-39eb-4844-a82a-dd2469d1d3fe
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: p-vzjr8-namespaces-edit
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: user-7vp8v
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T14:13:59Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-97ggn
+      cattle.io/creator: norman
+    name: crb-t26va2kqbd
+    resourceVersion: "21212"
+    uid: a57e7d58-b044-404a-a520-c570155d633d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-jr2vj
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:11Z"
+    labels:
+      cattle.io/creator: norman
+      p-n9m6f_creator-project-owner: owner-user
+      p-vzjr8_creator-project-owner: owner-user
+    name: crb-u7l3szdnyi
+    resourceVersion: "786"
+    uid: d474ae93-c886-425c-9757-738cd62b7160
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: create-ns
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: user-7vp8v
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-12T03:11:56Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-fff2q
+      cattle.io/creator: norman
+    name: crb-uex2vvqok3
+    resourceVersion: "51792288"
+    uid: 6dd2817d-5b10-41d4-aa98-f6d8bdb7547c
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-rs5lh
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-16T12:45:09Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_u-vtgw5-restricted-admin-cluster-owner
+      cattle.io/creator: norman
+    name: crb-vayuuc6bvc
+    resourceVersion: "53942400"
+    uid: 7c48c34c-4255-4539-b62d-d32a9594fdbe
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-vtgw5
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T06:48:11Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-mkkmn
+      cattle.io/creator: norman
+    name: crb-vloknassu3
+    resourceVersion: "176293"
+    uid: bf5c8733-76ee-430a-a3c3-6807b65cc5a6
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-wlq2t
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-15T06:39:16Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-p74pg
+      cattle.io/creator: norman
+    name: crb-wdu4hoec5z
+    resourceVersion: "53251561"
+    uid: f562c914-d148-4955-8002-1c384a957730
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-pfhws
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-12-09T04:32:01Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_crtb-x6sgs
+      cattle.io/creator: norman
+    name: crb-zr4juz7fmo
+    resourceVersion: "137265840"
+    uid: d0e65531-0023-4069-a27c-4014dd120bc5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: projects-view
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-jndnn
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-05-16T12:45:10Z"
+    labels:
+      authz.cluster.cattle.io/rtb-owner-updated: c-jj9m8_u-99wdc-restricted-admin-cluster-owner
+      cattle.io/creator: norman
+    name: crb-zwsnajtsz6
+    resourceVersion: "53942407"
+    uid: 1da8acdd-cb28-4cda-8814-098a1ae61add
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-owner
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-99wdc
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-21T10:47:39Z"
+    labels:
+      cattle.io/creator: norman
+    name: globaladmin-u-6xgf7
+    resourceVersion: "4260196"
+    uid: d5f2ad71-7b03-462e-b2b8-33d5b0c118e8
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-6xgf7
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T14:10:23Z"
+    labels:
+      cattle.io/creator: norman
+    name: globaladmin-u-99wdc
+    resourceVersion: "20613"
+    uid: 9b7a46e3-9ed1-4c6c-807b-d66b685a197a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-99wdc
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-21T10:48:11Z"
+    labels:
+      cattle.io/creator: norman
+    name: globaladmin-u-9nq9b
+    resourceVersion: "4260282"
+    uid: a35cd01e-d2b2-462f-bf75-b25504f317ea
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-9nq9b
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-16T03:47:54Z"
+    labels:
+      cattle.io/creator: norman
+    name: globaladmin-u-fzmq4
+    resourceVersion: "3069138"
+    uid: 66e7d3df-7282-49fb-8fb6-f9e0357a8ef0
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-fzmq4
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-03T03:09:33Z"
+    labels:
+      cattle.io/creator: norman
+    name: globaladmin-u-tprwf
+    resourceVersion: "141942"
+    uid: e3df0d50-051b-40aa-b8cd-0381662b667a
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-tprwf
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:10Z"
+    labels:
+      cattle.io/creator: norman
+    name: globaladmin-u-vtgw5
+    resourceVersion: "709"
+    uid: 4bdd05b4-6654-402f-b01b-ef8f2f4920a2
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-vtgw5
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-02-07T09:38:37Z"
+    labels:
+      cattle.io/creator: norman
+    name: globaladmin-u-znqvw
+    resourceVersion: "22048955"
+    uid: 72f2007f-4a22-4b4b-93d2-461dc2c69886
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-znqvw
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:10Z"
+    labels:
+      cattle.io/creator: norman
+    name: globaladmin-user-7vp8v
+    resourceVersion: "704"
+    uid: f0258984-1dd4-400c-b5f4-7d143cb1a5f6
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: user-7vp8v
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T14:10:23Z"
+    labels:
+      cattle.io/creator: norman
+    name: globalrestrictedadmin-u-99wdc
+    resourceVersion: "20616"
+    uid: 481c48b6-fe5f-41eb-9e3b-1ee5d4e33726
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-99wdc
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:10Z"
+    labels:
+      cattle.io/creator: norman
+    name: globalrestrictedadmin-u-vtgw5
+    resourceVersion: "723"
+    uid: 8382b352-3ca1-4b17-a4b5-732c2e3bb841
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: u-vtgw5
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:29:29Z"
+    name: job-deployer
+    resourceVersion: "244"
+    uid: 9563b3ab-79d4-45f5-ba79-74ec558ba6e4
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: rke-job-deployer
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"name":"kube-dump"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"view"},"subjects":[{"kind":"ServiceAccount","name":"kube-dump","namespace":"kube-dump"}]}
+    creationTimestamp: "2023-01-30T02:38:39Z"
+    name: kube-dump
+    resourceVersion: "56621562"
+    uid: 8c2f97ac-03cc-43a6-8f69-09ccb70e05b7
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: view
+  subjects:
+  - kind: ServiceAccount
+    name: kube-dump
+    namespace: kube-dump
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2023-04-06T02:16:02Z"
+    labels:
+      LabelCreatedBy: kubeshark
+      LabelManagedBy: kubeshark
+      kubeshark-cli-version: v1
+    name: kubeshark-cluster-role-binding
+    resourceVersion: "40358635"
+    uid: 0455e799-b91f-4025-92cf-37df5897e23c
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: kubeshark-cluster-role
+  subjects:
+  - kind: ServiceAccount
+    name: kubeshark-service-account
+    namespace: kubeshark
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"labels":{"k8s-app":"metrics-server"},"name":"metrics-server:system:auth-delegator"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"system:auth-delegator"},"subjects":[{"kind":"ServiceAccount","name":"metrics-server","namespace":"kube-system"}]}
+    creationTimestamp: "2022-11-02T12:29:58Z"
+    labels:
+      k8s-app: metrics-server
+    name: metrics-server:system:auth-delegator
+    resourceVersion: "609"
+    uid: 157c38bd-8547-403a-aa09-91066219147f
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:auth-delegator
+  subjects:
+  - kind: ServiceAccount
+    name: metrics-server
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"labels":{"app.kubernetes.io/instance":"promtail-develop-digital","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"promtail","app.kubernetes.io/version":"2.9.1","helm.sh/chart":"promtail-6.15.2"},"name":"promtail"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"promtail"},"subjects":[{"kind":"ServiceAccount","name":"promtail","namespace":"promtail"}]}
+    creationTimestamp: "2023-11-02T07:24:54Z"
+    labels:
+      app.kubernetes.io/instance: promtail-develop-digital
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: promtail
+      app.kubernetes.io/version: 2.9.1
+      helm.sh/chart: promtail-6.15.2
+    name: promtail
+    resourceVersion: "118577219"
+    uid: c5b9b76e-1508-4d7f-aca0-19f027a71c77
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: promtail
+  subjects:
+  - kind: ServiceAccount
+    name: promtail
+    namespace: promtail
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"name":"proxy-role-binding-kubernetes-master"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"proxy-clusterrole-kubeapiserver"},"subjects":[{"apiGroup":"rbac.authorization.k8s.io","kind":"User","name":"kube-apiserver"}]}
+    creationTimestamp: "2022-11-02T12:29:29Z"
+    name: proxy-role-binding-kubernetes-master
+    resourceVersion: "127850739"
+    uid: a33f09a4-a01a-4776-b28b-a4d1cb05000f
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: proxy-clusterrole-kubeapiserver
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: kube-apiserver
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      meta.helm.sh/release-name: rancher-webhook
+      meta.helm.sh/release-namespace: cattle-system
+    creationTimestamp: "2023-04-21T06:22:38Z"
+    labels:
+      app.kubernetes.io/managed-by: Helm
+    name: rancher-webhook
+    resourceVersion: "45179466"
+    uid: e17e4bd4-fa13-49a8-b15a-f1d113861892
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: rancher-webhook
+    namespace: cattle-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"name":"read-only-binding"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"read-only-clusterrole"},"subjects":[{"kind":"ServiceAccount","name":"read-only-user","namespace":"kubernetes-dashboard"}]}
+    creationTimestamp: "2022-11-08T07:11:18Z"
+    name: read-only-binding
+    resourceVersion: "1302180"
+    uid: c5f4f2f3-8b77-459f-bbe1-cd08cf0a2094
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: read-only-clusterrole
+  subjects:
+  - kind: ServiceAccount
+    name: read-only-user
+    namespace: kubernetes-dashboard
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    creationTimestamp: "2022-11-02T12:30:02Z"
+    name: system-netes-default-clusterRoleBinding
+    resourceVersion: "667"
+    uid: d5e04e3e-ba08-4706-9316-c9159f446a34
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: cluster-admin
+  subjects:
+  - kind: ServiceAccount
+    name: kontainer-engine
+    namespace: cattle-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:basic-user
+    resourceVersion: "134"
+    uid: 9686a67d-d050-44e5-a2bb-7658b1f73807
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:basic-user
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:authenticated
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:attachdetach-controller
+    resourceVersion: "143"
+    uid: 49b433d1-6656-4140-91ee-a87ce0b14d21
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:attachdetach-controller
+  subjects:
+  - kind: ServiceAccount
+    name: attachdetach-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:certificate-controller
+    resourceVersion: "169"
+    uid: 3182125a-3b5d-4d67-aa5b-1ac3253a6763
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:certificate-controller
+  subjects:
+  - kind: ServiceAccount
+    name: certificate-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:clusterrole-aggregation-controller
+    resourceVersion: "144"
+    uid: c558aa9a-9796-4661-b65a-d8152cb3ed84
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:clusterrole-aggregation-controller
+  subjects:
+  - kind: ServiceAccount
+    name: clusterrole-aggregation-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:cronjob-controller
+    resourceVersion: "145"
+    uid: 01eca165-7d12-4b3b-914c-d53a7f87f0a5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:cronjob-controller
+  subjects:
+  - kind: ServiceAccount
+    name: cronjob-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:daemon-set-controller
+    resourceVersion: "146"
+    uid: 07ae925a-d964-4d02-99b3-af8ca091252e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:daemon-set-controller
+  subjects:
+  - kind: ServiceAccount
+    name: daemon-set-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:deployment-controller
+    resourceVersion: "147"
+    uid: cd81f25e-619f-429b-a45e-ec834caf0c8c
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:deployment-controller
+  subjects:
+  - kind: ServiceAccount
+    name: deployment-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:disruption-controller
+    resourceVersion: "148"
+    uid: ddc4663c-a988-48b9-8f21-4618d9af8265
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:disruption-controller
+  subjects:
+  - kind: ServiceAccount
+    name: disruption-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:endpoint-controller
+    resourceVersion: "149"
+    uid: 0662deaf-bee9-4d2d-8003-d31368d69674
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:endpoint-controller
+  subjects:
+  - kind: ServiceAccount
+    name: endpoint-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:endpointslice-controller
+    resourceVersion: "150"
+    uid: 274d413e-c716-4216-b4bc-8c943d039cac
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:endpointslice-controller
+  subjects:
+  - kind: ServiceAccount
+    name: endpointslice-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:endpointslicemirroring-controller
+    resourceVersion: "151"
+    uid: 9155ab9a-ede8-4859-8832-4f00ba3b303d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:endpointslicemirroring-controller
+  subjects:
+  - kind: ServiceAccount
+    name: endpointslicemirroring-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:ephemeral-volume-controller
+    resourceVersion: "153"
+    uid: 2e34d811-2ebf-4965-98a4-e60b10f0d123
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:ephemeral-volume-controller
+  subjects:
+  - kind: ServiceAccount
+    name: ephemeral-volume-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:expand-controller
+    resourceVersion: "152"
+    uid: f56e2900-f634-40a4-a637-f46f88185581
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:expand-controller
+  subjects:
+  - kind: ServiceAccount
+    name: expand-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:generic-garbage-collector
+    resourceVersion: "154"
+    uid: 5d7e404b-dc37-4643-bfd9-73d3bc82476c
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:generic-garbage-collector
+  subjects:
+  - kind: ServiceAccount
+    name: generic-garbage-collector
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:horizontal-pod-autoscaler
+    resourceVersion: "155"
+    uid: e9a20832-cb40-4d44-9ca3-ca23e09ecc64
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:horizontal-pod-autoscaler
+  subjects:
+  - kind: ServiceAccount
+    name: horizontal-pod-autoscaler
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:job-controller
+    resourceVersion: "156"
+    uid: 69acff95-3d40-4e7b-a0de-d9ea1032ba13
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:job-controller
+  subjects:
+  - kind: ServiceAccount
+    name: job-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:namespace-controller
+    resourceVersion: "157"
+    uid: e94df5f6-411e-4566-b68d-38b26790ea7b
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:namespace-controller
+  subjects:
+  - kind: ServiceAccount
+    name: namespace-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:node-controller
+    resourceVersion: "158"
+    uid: 0e1678f6-4246-4ecf-8eac-ca8bf924c67d
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:node-controller
+  subjects:
+  - kind: ServiceAccount
+    name: node-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:persistent-volume-binder
+    resourceVersion: "159"
+    uid: 82d5dabf-3af7-476f-87ce-b10232dfdb53
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:persistent-volume-binder
+  subjects:
+  - kind: ServiceAccount
+    name: persistent-volume-binder
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:pod-garbage-collector
+    resourceVersion: "160"
+    uid: d1515f31-a993-4540-a35f-1ee4bfd0ce31
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:pod-garbage-collector
+  subjects:
+  - kind: ServiceAccount
+    name: pod-garbage-collector
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:pv-protection-controller
+    resourceVersion: "171"
+    uid: 9b91f044-3c75-478a-8c2c-98d39839c7d5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:pv-protection-controller
+  subjects:
+  - kind: ServiceAccount
+    name: pv-protection-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:pvc-protection-controller
+    resourceVersion: "170"
+    uid: 9985f4d9-c65c-47b2-ad10-7be306e610d3
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:pvc-protection-controller
+  subjects:
+  - kind: ServiceAccount
+    name: pvc-protection-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:replicaset-controller
+    resourceVersion: "161"
+    uid: 4f4fdc12-1c81-4e18-818a-eb4c54aca918
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:replicaset-controller
+  subjects:
+  - kind: ServiceAccount
+    name: replicaset-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:replication-controller
+    resourceVersion: "162"
+    uid: a5a79d7a-496f-4d6a-a1fb-3c25ee249dcd
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:replication-controller
+  subjects:
+  - kind: ServiceAccount
+    name: replication-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:resourcequota-controller
+    resourceVersion: "163"
+    uid: 7acc9fc5-01ef-4cb9-8e7d-64d589acc2ae
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:resourcequota-controller
+  subjects:
+  - kind: ServiceAccount
+    name: resourcequota-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:root-ca-cert-publisher
+    resourceVersion: "173"
+    uid: ab32459c-a51e-4a86-b037-6255df1a7f73
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:root-ca-cert-publisher
+  subjects:
+  - kind: ServiceAccount
+    name: root-ca-cert-publisher
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:route-controller
+    resourceVersion: "164"
+    uid: e67f295a-8f35-4098-8981-294b36822603
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:route-controller
+  subjects:
+  - kind: ServiceAccount
+    name: route-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:service-account-controller
+    resourceVersion: "165"
+    uid: a43b2f1e-d13d-4d4c-9a5d-327c42d9ef9e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:service-account-controller
+  subjects:
+  - kind: ServiceAccount
+    name: service-account-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:service-controller
+    resourceVersion: "166"
+    uid: 1463f742-b009-4294-923c-b9447bf05993
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:service-controller
+  subjects:
+  - kind: ServiceAccount
+    name: service-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:statefulset-controller
+    resourceVersion: "167"
+    uid: e78c7b4a-9475-4e64-9ce4-216b31cf091f
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:statefulset-controller
+  subjects:
+  - kind: ServiceAccount
+    name: statefulset-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:ttl-after-finished-controller
+    resourceVersion: "172"
+    uid: ca0885b0-b8cb-4456-9364-0be1e08075da
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:ttl-after-finished-controller
+  subjects:
+  - kind: ServiceAccount
+    name: ttl-after-finished-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:controller:ttl-controller
+    resourceVersion: "168"
+    uid: fec70b13-42ad-41ed-91d7-78faa6cd9d31
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:controller:ttl-controller
+  subjects:
+  - kind: ServiceAccount
+    name: ttl-controller
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{"rbac.authorization.kubernetes.io/autoupdate":"true"},"labels":{"kubernetes.io/bootstrapping":"rbac-defaults"},"name":"system:coredns"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"system:coredns"},"subjects":[{"kind":"ServiceAccount","name":"coredns","namespace":"kube-system"}]}
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:53Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:coredns
+    resourceVersion: "513"
+    uid: c079b863-016e-4109-b0c5-ec6ed3757529
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:coredns
+  subjects:
+  - kind: ServiceAccount
+    name: coredns
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"name":"system:coredns-autoscaler"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"system:coredns-autoscaler"},"subjects":[{"kind":"ServiceAccount","name":"coredns-autoscaler","namespace":"kube-system"}]}
+    creationTimestamp: "2022-11-02T12:29:53Z"
+    name: system:coredns-autoscaler
+    resourceVersion: "552"
+    uid: 64466770-1b3e-4531-a882-56fccbbaed40
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:coredns-autoscaler
+  subjects:
+  - kind: ServiceAccount
+    name: coredns-autoscaler
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:discovery
+    resourceVersion: "133"
+    uid: da8188ad-da70-4b23-af98-2ccde410e701
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:discovery
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:authenticated
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:kube-controller-manager
+    resourceVersion: "137"
+    uid: 418647fb-4e1e-4b85-965a-032d22f936e3
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:kube-controller-manager
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:kube-controller-manager
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:kube-dns
+    resourceVersion: "138"
+    uid: 120ca5ff-ff60-419d-8988-456ee1969452
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:kube-dns
+  subjects:
+  - kind: ServiceAccount
+    name: kube-dns
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:kube-scheduler
+    resourceVersion: "139"
+    uid: bec8159f-ce16-488c-a71b-15453bd25d0c
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:kube-scheduler
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:kube-scheduler
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"rbac.authorization.k8s.io/v1","kind":"ClusterRoleBinding","metadata":{"annotations":{},"labels":{"k8s-app":"metrics-server"},"name":"system:metrics-server"},"roleRef":{"apiGroup":"rbac.authorization.k8s.io","kind":"ClusterRole","name":"system:metrics-server"},"subjects":[{"kind":"ServiceAccount","name":"metrics-server","namespace":"kube-system"}]}
+    creationTimestamp: "2022-11-02T12:29:58Z"
+    labels:
+      k8s-app: metrics-server
+    name: system:metrics-server
+    resourceVersion: "610"
+    uid: 30bcee19-48ec-4db0-a746-cf8ba306ca8e
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:metrics-server
+  subjects:
+  - kind: ServiceAccount
+    name: metrics-server
+    namespace: kube-system
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:monitoring
+    resourceVersion: "132"
+    uid: f330d8f8-1f01-4dd5-bf3a-4cf1dc11cf80
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:monitoring
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:monitoring
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "false"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:node
+    resourceVersion: "247"
+    uid: d5c87a0d-fb40-480f-b212-736efdb3d2e2
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:node
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:nodes
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:node-proxier
+    resourceVersion: "136"
+    uid: 3fe680e7-9583-47b0-98c1-4b8c3d6507fc
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:node-proxier
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:kube-proxy
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:public-info-viewer
+    resourceVersion: "135"
+    uid: 2420464f-4042-4625-a8aa-14c1a87125b5
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:public-info-viewer
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:authenticated
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:unauthenticated
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:service-account-issuer-discovery
+    resourceVersion: "142"
+    uid: 33bc996e-5e3b-4dac-af3a-72490bf77bd6
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:service-account-issuer-discovery
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: Group
+    name: system:serviceaccounts
+- apiVersion: rbac.authorization.k8s.io/v1
+  kind: ClusterRoleBinding
+  metadata:
+    annotations:
+      rbac.authorization.kubernetes.io/autoupdate: "true"
+    creationTimestamp: "2022-11-02T12:29:15Z"
+    labels:
+      kubernetes.io/bootstrapping: rbac-defaults
+    name: system:volume-scheduler
+    resourceVersion: "140"
+    uid: e188d80c-9895-4947-bb0e-3a517d73ee91
+  roleRef:
+    apiGroup: rbac.authorization.k8s.io
+    kind: ClusterRole
+    name: system:volume-scheduler
+  subjects:
+  - apiGroup: rbac.authorization.k8s.io
+    kind: User
+    name: system:kube-scheduler
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

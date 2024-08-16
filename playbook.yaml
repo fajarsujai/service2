@@ -1,0 +1,167 @@
+- name: Play 1
+  hosts: all
+  tasks:
+      #Mengambil nama project
+    - name: Get proj_name by git
+      ansible.builtin.shell:
+        cmd: basename $(pwd -P)
+      register: proj_name
+      
+    - name: Set proj_name to variable
+      set_fact:
+        proj_name: "{{ proj_name.stdout }}"
+    - debug:
+        msg: "{{ proj_name }}"
+      #End Mengambil nama project
+
+      #Mengambil tag repo develop manual
+    - name: Get tag_repo_dev by git
+      command: git log --pretty=format:%h -1
+      register: tag_repo_dev
+      when: proj_env == 'develop'
+
+    - name: Set tag_repo_dev to variable
+      set_fact:
+        proj_tag_dev: "{{ tag_repo_dev.stdout }}"
+      when: proj_env == 'develop'
+    - debug:
+        msg: "{{ proj_tag_dev }}"
+      #END Mengambil tag repo develop manual
+
+      #Build & push images to docker (develop)
+    - name: Run if env develop
+      become: true
+      become_user: root
+      when: proj_env == 'develop' or proj_tag_dev != 'null'
+      block:
+        - docker_login:
+            username: "fajarsujai"
+            password: "SeptemberRain$10"
+        - command: "docker build -t {{u_repo_docker}}/{{proj_name}}:{{proj_tag_dev}} --build-arg BRANCH={{proj_env}} --build-arg PORT={{proj_port}}  ."
+          register: v_docker_1
+        - command: "docker push {{u_repo_docker}}/{{proj_name}}:{{proj_tag_dev}}"
+          register: v_docker_2
+        - debug:
+            msg: 
+              - "Docker build"
+              - '{{ v_docker_1.stdout_lines }}'
+              - "Docker push"
+              - '{{ v_docker_2.stdout_lines }}'
+      #End Build & push images to docker (develop)
+
+      #Mengambil tag repo staging
+    - name: Get tag_repo_sta by git
+      command: git describe --abbrev=0 --tags --match "rc*"
+      register: tag_repo_sta
+      when: proj_env == 'staging'
+
+    - name: Set tag_repo_sta to variable
+      set_fact:
+        proj_tag_sta: "{{ tag_repo_sta.stdout }}"
+      when: proj_env == 'staging'
+    - debug:
+        msg: "{{ proj_tag_sta }}"
+      #End mengambil tag repo staging
+
+
+    #Build & push images to docker manual (staging)
+    - name: Run if env staging
+      become: true
+      become_user: root
+      block:
+        - docker_login:
+            username: "fajarsujai"
+            password: "SeptemberRain$10"
+        - command: "docker build -t {{u_repo_docker}}/{{proj_name}}:{{proj_tag_sta}} --build-arg BRANCH={{proj_env}} --build-arg PORT={{proj_port}}  ."
+          register: v_docker_1
+        - command: "docker push {{u_repo_docker}}/{{proj_name}}:{{proj_tag_sta}}"
+          register: v_docker_2
+        - debug:
+            msg: 
+              - "Docker build"
+              - '{{ v_docker_1.stdout_lines }}'
+              - "Docker push"
+              - '{{ v_docker_2.stdout_lines }}'
+      when: proj_env == 'staging' and proj_tag_sta | regex_search("^rc\-[0-9]+\.[0-9]+\.[0-9]+$")
+      #End build & push images to docker (staging)
+  
+      #Build & push images to docker jenkins (staging)
+    - name: Run if env staging
+      become: true
+      become_user: root
+      block:
+        - docker_login:
+            username: "fajarsujai"
+            password: "SeptemberRain$10"
+        - command: "docker build -t {{u_repo_docker}}/{{proj_name}}:{{proj_tag_sta}} --build-arg BRANCH={{proj_env}} --build-arg PORT={{proj_port}}  ."
+          register: v_docker_1
+        - command: "docker push {{u_repo_docker}}/{{proj_name}}:{{proj_tag_sta}}"
+          register: v_docker_2
+        - debug:
+            msg: 
+              - "Docker build"
+              - '{{ v_docker_1.stdout_lines }}'
+              - "Docker push"
+              - '{{ v_docker_2.stdout_lines }}'
+      when: proj_tag_sta | regex_search("^rc\-[0-9]+\.[0-9]+\.[0-9]+$")
+      #End build & push images to docker (staging)
+
+      #Mengambil tag repo production Manual
+    - name: Get tag_repo_prod by git
+      command: git describe --abbrev=0 --tags --match "v*"
+      register: tag_repo_prod
+      when: proj_env == 'production'
+
+    - name: Set tag_repo_prod to variable
+      set_fact:
+        proj_tag_prod: "{{ tag_repo_prod.stdout }}"
+      when: proj_env == 'production'
+    - debug:
+        msg: "{{ proj_tag_prod }}"
+      #End Mengambil tag repo production Manual
+    
+      #Build & push images to docker manual(production)
+    - name: Run if env production
+      become: true
+      become_user: root
+      block:
+        - docker_login:
+            username: "fajarsujai"
+            password: "SeptemberRain$10"
+        - command: "docker build -t {{u_repo_docker}}/{{proj_name}}:{{proj_tag_prod}} --build-arg BRANCH={{proj_env}} --build-arg PORT={{proj_port}}  ."
+          register: v_docker_1
+        - command: "docker push {{u_repo_docker}}/{{proj_name}}:{{proj_tag_prod}}"
+          register: v_docker_2
+        - debug:
+            msg: 
+              - "Docker build"
+              - '{{ v_docker_1.stdout_lines }}'
+              - "Docker push"
+              - '{{ v_docker_2.stdout_lines }}'
+      when: proj_env == 'production' and proj_tag_prod | regex_search("^v[0-9]+\.[0-9]+\.[0-9]+$")
+      #End Build & push images to docker (production)
+
+      #Build & push images to docker jenkins(production)
+    - name: Run if env production
+      become: true
+      become_user: root
+      block:
+        - docker_login:
+            username: "fajarsujai"
+            password: "SeptemberRain$10"
+        - command: "docker build -t {{u_repo_docker}}/{{proj_name}}:{{proj_tag_prod}} --build-arg BRANCH={{proj_env}} --build-arg PORT={{proj_port}}  ."
+          register: v_docker_1
+        - command: "docker push {{u_repo_docker}}/{{proj_name}}:{{proj_tag_prod}}"
+          register: v_docker_2
+        - debug:
+            msg: 
+              - "Docker build"
+              - '{{ v_docker_1.stdout_lines }}'
+              - "Docker push"
+              - '{{ v_docker_2.stdout_lines }}'
+      when: proj_tag_prod | regex_search("^v[0-9]+\.[0-9]+\.[0-9]+$")
+      #End Build & push images to docker (production)
+
+
+    
+    

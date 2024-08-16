@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghw-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ghw-app
+  template:
+    metadata:
+      labels:
+        app: ghw-app
+    spec:
+      containers:
+      - name: ghw-container
+        image: fajarsujailoyato/go-hello-world:v2
+        envFrom:
+        - secretRef:
+            name: sc-ghw

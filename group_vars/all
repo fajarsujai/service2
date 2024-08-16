@@ -1,0 +1,6 @@
+u_repo_docker: fajarsujai
+proj_port: 8001
+proj_env: 'null'
+proj_tag_dev: "null"
+proj_tag_sta: "null"
+proj_tag_prod: "null"

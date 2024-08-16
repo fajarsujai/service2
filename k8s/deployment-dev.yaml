@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghw-deployment-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ghw-deployment-dev
+  template:
+    metadata:
+      labels:
+        app: ghw-deployment-dev
+    spec:
+      containers:
+      - name: ghw-deployment-dev
+        image: fajarsujailoyato/go-hello-world:v2
+        # envFrom:
+        # - secretRef:
+        #     name: sc-ghw
+        # lifecycle:
+        #   postStart:
+        #     exec:
+        #       command: ["/bin/sh", "-c", "rm -f /app/.env && exit 0"]
+      #   volumeMounts:
+      #       - name: secret-volume
+      #         mountPath: /app/mysecret
+      #         readOnly: true
+      # volumes:
+      #   - name: secret-volume
+      #     secret:
+      #       secretName: sc-ghw

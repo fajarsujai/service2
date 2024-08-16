@@ -1,0 +1,24 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: /home/fajarsujai/.minikube/ca.crt
+    server: https://127.0.0.1:58380
+  name: development
+contexts:
+- context:
+    cluster: ""
+    user: ""
+  name: develop
+- context:
+    cluster: development
+    namespace: develop-ghw-sc-vol
+    user: developer
+  name: develop-sc
+current-context: ""
+kind: Config
+preferences: {}
+users:
+- name: developer
+  user:
+    client-certificate: /home/fajarsujai/.minikube/profiles/minikube/client.crt
+    client-key: /home/fajarsujai/.minikube/profiles/minikube/client.key
