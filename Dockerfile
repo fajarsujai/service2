@@ -1,74 +1,58 @@
-# Create build stage based on buster image
-FROM golang:1.20-buster AS builder
+################
+# BUILD BINARY #
+################
+# Golang builder stage
+FROM golang:1.20 as builder
 
-
-#build-arg
-ARG BRANCH
+#BUILD-ARG
 ARG PORT
-# ARG PROJ_NAME
+ARG PROJECT
 
-# Create working directory under /app
+# Install git, SSL ca certificates, and timezone data
+RUN apt-get update && apt-get install -y git ca-certificates tzdata
+
+# Install protobuf compiler
+RUN apt-get install -y protobuf-compiler
+
+# Set the working directory
 WORKDIR /app
 
-# Copy over all go config (go.mod, go.sum etc.)
-COPY go.* ./
+# Copy entire source code
+COPY . .
 
+# Remove go.mod and go.sum if they exist
+RUN if [ -f go.mod ]; then rm go.mod; fi && if [ -f go.sum ]; then rm go.sum; fi
+
+# Setup Golang Module and generated protoc
 # Install any required modules
+COPY go.* ./
 RUN go mod download
+RUN export PATH="$PATH:$(go env GOPATH)/bin"
+RUN go mod tidy
 
-# Copy over Go source code
-COPY *.go ./
-# COPY . .
+# Build the binary
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o /bin/app main.go
 
-# Install dependencies
-RUN go get -u github.com/joho/godotenv
+#####################
+# MAKE SMALL BINARY #
+#####################
+# Final stage: lightweight container
+FROM alpine:3.16
 
-# Copy ENV
-COPY .env.${BRANCH} .env
+#Build-ARG
+ARG PORT
+ARG PROJECT
 
-# Run the Go build and output binary under hello_go_http
-RUN go build -o /hello_go_http
+# Set the working directory
+WORKDIR /app
 
-# Make sure to expose the port the HTTP server is using
+
+#EXPOSE PORT
 EXPOSE ${PORT}
+# Copy necessary files from builder stage
+COPY --from=builder /bin/app /bin/app
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY --from=builder /etc/passwd /etc/passwd
 
-# Run the app binary when we run the container
-ENTRYPOINT ["/hello_go_http"]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# # Golang base image
-# FROM golang:latest
-
-# #ARG BRANCH
-# ARG PORT
-# #ARG PROJ_NAME
-
-# # Set the working directory inside the container
-# WORKDIR /app
-
-# # Copy the Go application files to the container
-# COPY . .
-
-# # Install dependencies
-# RUN go get -u github.com/joho/godotenv
-
-# # Build the Go application
-# RUN go build -o main .
-
-# # Expose the port the application runs on
-# EXPOSE ${PORT}
-
-# # Command to run the application
-# CMD ["./main"]
+# Set the entry point for the container
+ENTRYPOINT ["/bin/app"]
