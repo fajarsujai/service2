@@ -2,31 +2,31 @@ pipeline {
     agent any
 
     stages{
-        // stage("Docker Build"){
-        //     steps{
-        //         script{
-        //             sh "docker build -t fajarsujai/go-helloworld:${GIT_COMMIT} --build-arg BRANCH=develop --build-arg PORT=8001 ."
-        //         }
-        //     }
-        // }
+        stage("Docker Build"){
+            steps{
+                script{
+                    sh "docker build -t fajarsujai/servic2:${GIT_COMMIT} --build-arg PORT=3002 ."
+                }
+            }
+        }
 
 
-        // stage("Docker Push"){
-        //     steps{
-        //         script{
-        //             sh "docker push fajarsujai/go-helloworld:${GIT_COMMIT}"
-        //         }
-        //     }
-        // }
+        stage("Docker Push"){
+            steps{
+                script{
+                    sh "docker push fajarsujai/service2:${GIT_COMMIT}"
+                }
+            }
+        }
 
 
-        // stage("Finish"){
-        //     steps{
-        //         script{
-        //             echo("berhsil push image docker")
-        //         }
-        //     }
-        // }
+        stage("Finish"){
+            steps{
+                script{
+                    echo("berhsil push image docker")
+                }
+            }
+        }
 
         // stage("Run ansible playbook"){
         //     steps{
@@ -36,12 +36,12 @@ pipeline {
         //     }
         // }
 
-        stage("Docker version"){
-            steps{
-                script{
-                    sh "docker version"
-                }
-            }
-        }
+        // stage("Docker version"){
+        //     steps{
+        //         script{
+        //             sh "docker version"
+        //         }
+        //     }
+        // }
     }
 }
