@@ -20,28 +20,21 @@ pipeline {
         }
 
 
-        stage("Finish"){
+        stage("Generate Tag"){
             steps{
                 script{
-                    echo("berhsil push image docker")
+                    sh "sh generatetag.sh ${GIT_COMMIT}"
                 }
             }
         }
 
-        // stage("Run ansible playbook"){
-        //     steps{
-        //         script{
-        //            sh "docker run ansible ansible-playbook -i inventory/inventory.yaml -e 'proj_env=develop' playbook.yaml"
-        //         }
-        //     }
-        // }
 
-        // stage("Docker version"){
-        //     steps{
-        //         script{
-        //             sh "docker version"
-        //         }
-        //     }
-        // }
+        stage("Deploy"){
+            steps{
+                script{
+                    sh "helm upgrade service2 myhelm/myhelm -f values.yaml -n develop"
+                }
+            }
+        }
     }
 }
