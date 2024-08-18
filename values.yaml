@@ -8,7 +8,7 @@ image:
   repository: fajarsujai/service2
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "8ef6bb4aa8ab80de96431d956ea138ee96f4c19c"
+  tag: "v1"
 
 deployment:
   name: "service2"
